@@ -29,7 +29,6 @@ namespace Number_Picker
             timer.Interval = TimeSpan.FromSeconds(.1);
             timer.Tick += Timer_Tick;
             SetUpNum();
-            MouseDown += timeTextBlock_MouseDown;
             // Добавляем обработчик события KeyDown к Window
             KeyDown += Window_KeyDown;    
         }
@@ -108,15 +107,6 @@ namespace Number_Picker
                     SetUpNum();
                     currentTextValue = 0;                   
                 }
-            }
-        }
-
-        private void timeTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (currentTextValue == 25)
-            {
-               
-               
             }
         }
     }
