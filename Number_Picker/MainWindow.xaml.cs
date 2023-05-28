@@ -54,11 +54,12 @@ namespace Number_Picker
 
         private void SetUpNum()
         {
-            timer.Start();
-            tenthsOfSecondsElapsed = 0;
+            timer.Start(); // Старт таймера
+            tenthsOfSecondsElapsed = 0; // десятые доли секунды
             List<int> numbers = Enumerable.Range(1, 25).ToList();
             for (int i = 0; i < numbers.Count; i++)
             {
+                // Код реализует генерацию чисел от 1 до 25 в случайном порядке
                 Random random = new Random();
                 int randomIndex = random.Next(i, numbers.Count);
                 int temp = numbers[i];
@@ -68,6 +69,7 @@ namespace Number_Picker
 
             for(int i = 0; i < numbers.Count; i++)
             {
+                // Распределение чисел по элементам TextBlock
                 if (mainGrid.Children[i] is TextBlock textBlock)
                 {
                     textBlock.Text = numbers[i].ToString();
@@ -77,6 +79,7 @@ namespace Number_Picker
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            // При нажатии мышкой на число, оно исчезает
                 if (sender is TextBlock textBlock)
                 {
                     if (int.Parse(textBlock.Text) - currentTextValue == 1)
@@ -90,10 +93,9 @@ namespace Number_Picker
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
+            // При нажатии Enter игра возобновляется
             if(e.Key == Key.Enter)
             {
-                // Закрываем окно
-                // this.Close();
                 if (currentTextValue == 25)
                 {
                     for (int i = 0; i < currentTextValue; i++)
